@@ -22,5 +22,6 @@ urlpatterns = [
     #url(r'^admin/', admin.site.urls)
     #url(r'^main/$'.views.main) 此為Django1的格式，不能在2上使用
     path('main/', include('main.urls', namespace='main')),
+    path('article/', include('article.urls', namespace='article')),
     re_path('.*', views.main),
 ]

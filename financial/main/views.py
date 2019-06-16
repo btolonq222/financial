@@ -1,10 +1,16 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-import pandas as pd
+
 
 
 def main(request):
-    url = 'https://jdata.yuanta.com.tw/z/zc/zcq/zcq_2885.djhtm'
-    df = pd.read_html(url)
-    return HttpResponse(df)
+    """
+    Render the main page
+    """
+    return render(request, 'main/main.html')
+
+def about(request):
+    """
+    Render the main page
+    """
+    return render(request, 'main/about.html')
 # Create your views here.
