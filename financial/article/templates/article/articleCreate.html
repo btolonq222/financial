@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>財務分析網站</title>
+<title>部落格</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -10,20 +10,11 @@
 </head>
 <body>
 {% include 'main/navy.html' %}
-<h2>歡迎來到我的部落格</h2>
-<p><a class="btn btn-success" href="{% url 'article:articleCreate' %}">新增文章</a></p>
-{% for article, comments in articles.items %}
-  <h3>{{ article.title }}</h3>
-  <p>發表時間：{{ article.pubDateTime|date:'Y-m-d H:i' }}</p>
-  <div class="articleContent">{{ article.content|linebreaks|truncatechars_html:30 }}</div>
-  {% for comment in comments %}
-    <div class="commentDiv">
-      <span class="comment">{{ comment.content }}</span>
-      <br>
-      <span class="commentTime">{{ comment.pubDateTime|date:'m月d日 H:i' }}</span>
-    </div>
-  {% endfor %}
-  <hr>
-{% endfor %}
+<h2>新增文章</h2>
+<form method="post" action="{% url 'article:articleCreate' %}">
+  {% csrf_token %}
+  {{ articleForm.as_p }}
+  <input type="submit" value="送出">
+</form>
 </body>
 </html>
