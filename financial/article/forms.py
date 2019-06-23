@@ -8,7 +8,7 @@ class ArticleForm(forms.ModelForm):
     content = forms.CharField(label='內容', widget = forms.Textarea)
     
     
-    class meta:
+    class Meta:
         model = Article
         fields = ['title', 'content']
     
