@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'financial.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'blogdb',
-        'USER': 'blog',
-        'PASSWORD': 'blog',
+        'NAME': 'financialdb',
+        'USER': 'financial',
+        'PASSWORD': 'financial',
         'HOST': 'localhost',
         'PORT': '',
     }

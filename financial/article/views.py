@@ -25,5 +25,11 @@ def articleCreate(request):
     3. save the form to the model and redirect the user to the aritcle page
     """
     template = 'article/articleCreate.html'
+    print(ArticleForm())
     if request.method =='GET':
-        return render(request, template, {'articleForm':ArticleForm()})
+        return render(request, template, {'articleForm':1234})
+    
+    
+    
+    
+    
